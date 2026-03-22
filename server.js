@@ -2,8 +2,9 @@ require("dotenv").config(); // ✅ MUST be first line
 
 const express = require("express");
 const morgan = require("morgan");
+const path = require("path");
 const app = express();
-
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
